@@ -18,13 +18,26 @@
     "primary_p_value": 2.4645853238931284e-48,
     "primary_cramers_v": 0.301796,
     "primary_min_expected_count": 5.794019,
+    "primary_cells_expected_lt5": 0,
     "sensitivity_n_ge_30_projects": 34,
     "sensitivity_n_ge_30_cramers_v": 0.29979,
-    "sensitivity_n_ge_30_p_value": 3.982763392529188e-47,
+    "sensitivity_n_ge_40_cramers_v": 0.292777,
+    "sensitivity_n_ge_50_cramers_v": 0.292908,
     "full_54_project_cramers_v": 0.305165,
-    "full_54_project_cells_expected_lt5": 21
+    "full_54_project_cells_expected_lt5": 21,
+    "top_primary_project_contributor": "phoenix",
+    "top_primary_project_contribution": 61.145177,
+    "top_primary_project_contribution_share": 0.141392,
+    "largest_primary_positive_residual_project": "phoenix",
+    "largest_primary_positive_residual_category": "corrective",
+    "largest_primary_positive_residual": 6.029376,
+    "largest_primary_negative_residual_project": "pdfbox",
+    "largest_primary_negative_residual_category": "other",
+    "largest_primary_negative_residual": -5.200282
   },
-  "finding": "Maintenance-intent composition differs materially across Apache projects. Restricting inference to the 43 projects with at least 20 manually labeled commits yields chi-square(84)=432.452, p≈2.46e-48 and Cramer's V=0.302. The effect is nearly unchanged for projects with at least 30 labels (V=0.300), indicating that the heterogeneity is not driven only by very small project samples.",
-  "source": "Trautsch et al. SmartSHARK manual commit-intent labels, Zenodo DOI 10.5281/zenodo.7078179",
-  "retrieved": "2026-09-25"
+  "finding": "The pooled maintenance-intent mix masks material project-to-project differences. In the primary 43-project subset with at least 20 manually labeled commits, chi-square(84)=432.452, p≈2.46e-48 and Cramer's V=0.302. The effect remains close to 0.30 under increasingly strict project-size thresholds. Phoenix, PDFBox, Commons Math, Commons Lang, and Tez are among the largest project-level contributors to the omnibus heterogeneity.",
+  "source": "Trautsch et al. manually classified Apache commit-intent dataset, Zenodo DOI 10.5281/zenodo.7078179",
+  "retrieved": "2026-09-25",
+  "release_version": "1.2.0",
+  "interpretation_boundary": "Descriptive and inferential cross-project maintenance-intent analysis. The release does not rank project quality, identify causal project effects, estimate engineering-change cost or schedule impact, or model temporal dynamics."
 }
