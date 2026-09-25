@@ -1,5 +1,7 @@
 # Manifest
 
+Release files excluding generated caches:
+
 - `.github/workflows/ci.yml`
 - `.github/workflows/empirical-rebuild.yml`
 - `.gitignore`
@@ -13,6 +15,7 @@
 - `PORTFOLIO_TRACK.md`
 - `QA_REPORT.md`
 - `README.md`
+- `REPORT.md`
 - `REPRODUCIBILITY.md`
 - `RESEARCH_BUNDLE.md`
 - `assets/architecture.svg`
@@ -24,6 +27,8 @@
 - `data/README.md`
 - `data/derived/category_summary.csv`
 - `data/derived/heterogeneity_results.csv`
+- `data/derived/primary_project_contributions.csv`
+- `data/derived/primary_project_residuals.csv`
 - `data/derived/project_composition.csv`
 - `data/derived/project_residuals.csv`
 - `data/source_manifest.json`
