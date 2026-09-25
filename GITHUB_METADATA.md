@@ -1,13 +1,25 @@
 # GitHub Metadata
 
 ## Portfolio track
+
 **Engineering Management Research**
 
+## Public research area
+
+**Research in System Engineering**
+
+## Repository slug
+
+`engineering_change_dynamics`
+
 ## About
-Empirical study of perfective, corrective, and other change composition across 54 Apache projects using 2,533 manually classified commits.
+
+Empirical study of cross project maintenance intent heterogeneity across 54 Apache projects using 2,533 manually classified commits.
 
 ## Suggested topics
-engineering-management, software-engineering, software-maintenance, software-evolution, engineering-change, change-management, commit-classification, software-quality, empirical-research, reproducible-research
+
+systems-engineering, engineering-management, empirical-software-engineering, software-maintenance, software-evolution, engineering-change, maintenance-intent, apache-projects, statistical-analysis, reproducible-research
 
 ## Suggested website
+
 https://devissaputra.github.io/
