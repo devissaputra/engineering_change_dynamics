@@ -1,103 +1,122 @@
-# Quality-Oriented Engineering Change Dynamics in Apache Projects
+# Cross-Project Heterogeneity in Quality-Oriented Engineering Change
 
-> **Empirical Research Bundle** · **Portfolio Track: Engineering Management Research** · Software-Intensive Systems / Engineering Change / Software Quality
+> **Empirical Research Bundle** · **Engineering Management Research** · Software Maintenance / Engineering Change / Empirical Software Engineering
 
-Empirical analysis of 2,533 manually classified commits across 54 Apache projects to quantify engineering change orientation and project heterogeneity.
+A reproducible secondary analysis of **2,533 manually classified commits across 54 Apache Java projects**. The study focuses on how the composition of **perfective**, **corrective**, and **other** maintenance differs across projects, with uncertainty and sample-size sensitivity reported explicitly.
 
-![Empirical workflow](assets/architecture.svg)
+![Workflow](assets/architecture.svg)
 
-## Study status
+## Why this release is different
 
-**Completed secondary empirical analysis.** Reported findings were calculated from the named public source on 25 September 2026. The rebuild script contains **no synthetic fallback**. Raw source data are not republished unless source terms permit it; `data/source_manifest.json` records provenance, retrieval details, licensing notes, and the claim boundary.
+The prototype treated `internal_quality` and `external_quality` as independent binary variables and reported a phi coefficient. That was conceptually wrong for this source: the authors' ground truth is a three-category classification—**perfective, corrective, or other**—with perfective mapped to internal-quality intent and corrective mapped to external-quality intent. The released analysis now follows that taxonomy directly.
 
-## Research question
+## Research questions
 
-> How frequently do observed engineering changes target internal versus external software quality, and how heterogeneous is that orientation across projects?
+1. What share of manually classified commits are perfective, corrective, and other?
+2. Does maintenance-intent composition vary across projects beyond sampling noise?
+3. Is the estimated heterogeneity robust when small project samples are excluded?
+4. Which project-category combinations depart most strongly from the pooled composition?
 
-## Design
+## Source and sampling
 
-- **Design:** Secondary observational analysis of 2,533 manually coded commits from 54 Java Apache projects
-- **Source:** SmartSHARK commit-intent replication dataset (Trautsch et al.)
-- **Source page:** https://zenodo.org/records/7078179
-- **Direct data endpoint:** `https://zenodo.org/records/7078179/files/manual_labels.csv?download=1`
-- **Retrieval / analysis date:** 2026-09-25
-- **Licensing / reuse note:** Open Zenodo research dataset; cite the original authors and follow the record reuse terms.
+- **Dataset:** Trautsch, Erbel, Herbold & Grabowski replication data
+- **Zenodo DOI:** `10.5281/zenodo.7078179`
+- **File:** `manual_labels.csv`
+- **Zenodo MD5:** `a099d942098227a1fc8127759e55850e`
+- **Sample:** 2,533 commits from 54 Java Apache projects
+- **Original study sampling:** approximately 2% of eligible commits per project, rounded up
+- **Manual coding:** two researchers, consensus labels after resolving disagreements
 
-## Hypotheses
+The article reports the three-class scheme as **perfective, corrective, and other**. Perfective corresponds to internal-quality improvement intent; corrective corresponds to external-quality improvement intent.
 
-1. H1: internal-quality changes constitute a substantial share of observed engineering work.
-2. H2: project-level internal- and external-quality shares vary materially rather than following one portfolio-wide pattern.
+## Pooled composition
 
-## Empirical method
+| Category | Count | Share | 95% Wilson CI |
+|---|---:|---:|---:|
+| Perfective | 1,022 | 40.3% | 38.5–42.3% |
+| Corrective | 685 | 27.0% | 25.3–28.8% |
+| Other | 826 | 32.6% | 30.8–34.5% |
 
-Parse the manually coded commit sample, classify each commit into internal-quality only, external-quality only, both, or neither, and compute overall and project-level shares. The packaged project table intentionally shows the ten projects with the largest sampled commit counts; portfolio extrema are computed over all 54 projects.
+![Overall composition](assets/category_composition.svg)
 
-![Method](assets/method.svg)
+## Primary heterogeneity result
 
-## Headline empirical finding
+The complete 54-project table contains several small project samples, producing **21 expected cells below 5** in a standard 54×3 chi-square table. I therefore use projects with **n ≥ 20** as the primary inferential analysis.
 
-Among 2,533 manually classified commits, 40.3% are internal-quality changes, 27.0% external-quality changes, and 32.6% neither. Project-level internal-quality shares range from 0.130 to 0.818, demonstrating strong heterogeneity in observed change orientation.
+For those **43 projects / 2,374 commits**:
 
-### Headline metrics
+- χ²(84) = **432.452175**
+- p ≈ **2.46 × 10⁻⁴⁸**
+- Cramér's V = **0.301796**
+- minimum expected cell count = **5.794019**
+- cells with expected count < 5 = **0**
 
-- **n commits**: 2533
-- **n projects**: 54
-- **internal only**: 1022
-- **external only**: 685
-- **neither**: 826
-- **both**: 0
-- **internal only share**: 0.403
-- **external only share**: 0.27
-- **neither share**: 0.326
-- **phi internal external**: -0.501
-- **project internal share min**: 0.13
-- **project internal share max**: 0.818
-- **project external share min**: 0.0
-- **project external share max**: 0.563
+This supports substantial cross-project heterogeneity in the observed maintenance-intent composition.
 
-The packaged derived tables are documented in `docs/data_dictionary.md`. That document states explicitly whether each CSV is a complete analysis table or a diagnostic subset.
+![Project heterogeneity](assets/project_heterogeneity.svg)
 
-![Research evidence](assets/research_design.svg)
+## Sample-size sensitivity
 
-## What this study can and cannot claim
+| Minimum project n | Projects | Commits | Cramér's V | Minimum expected |
+|---:|---:|---:|---:|---:|
+| 10 | 54 | 2,533 | 0.305165 | 2.704303 |
+| 20 | 43 | 2,374 | 0.301796 | 5.794019 |
+| 30 | 34 | 2,159 | 0.29979 | 8.364984 |
+| 40 | 25 | 1,864 | 0.292777 | 11.630901 |
+| 50 | 17 | 1,506 | 0.292908 | 13.977424 |
 
-**Can claim:** the computations in this repository summarize the named public dataset under the documented operationalization.
+The effect size stays close to **0.30** across all thresholds, so the headline heterogeneity is not an artifact of only the smallest projects.
 
-**Cannot claim:** Commit intent is not equivalent to requirement change, design rework, or downstream cost/schedule impact. The empirical title is intentionally narrower: claims concern coded change orientation in this sample of Apache projects.
+![Sensitivity](assets/sensitivity.svg)
 
-![Finding and boundary](assets/evaluation.svg)
+## Project-level evidence
+
+All **54 projects** are packaged in `data/derived/project_composition.csv` with counts, shares, and category-specific Wilson intervals. The largest Pearson residuals relative to pooled composition include:
+
+- **Phoenix / corrective:** +6.22
+- **PDFBox / other:** −5.18
+- **Phoenix / perfective:** −5.07
+- **Commons Math / perfective:** +4.56
+- **Commons Lang / perfective:** +4.53
+
+These residuals identify the cells contributing strongly to heterogeneity; they are descriptive diagnostics, not individually multiplicity-adjusted hypothesis tests.
+
+## What this study can claim
+
+- the released sample contains 1,022 perfective, 685 corrective, and 826 other commits;
+- maintenance-intent composition varies materially across the sampled Apache projects;
+- the heterogeneity effect remains near V≈0.30 when increasingly small project samples are removed;
+- project-level proportions carry wide uncertainty when n is small, which is visible in the packaged confidence intervals.
+
+## What this study cannot claim
+
+- commit intent is not requirement change, design rework, engineering-change cost, or schedule impact;
+- the Apache sample does not represent all software organizations;
+- project differences are descriptive associations, not causal effects;
+- the manual ground truth should not be interpreted as two independent internal/external binary outcomes;
+- the raw dataset license is not explicitly displayed in the Zenodo record, so this repository packages derived aggregates rather than redistributing the source CSV.
+
+![Evidence boundary](assets/evaluation.svg)
 
 ## Reproduce
 
-Offline verification of packaged empirical results:
+Offline:
 
 ```bash
 python -m pip install -r requirements.txt
 pytest -q
 python run_demo.py
+python scripts/generate_figures.py --out-dir /tmp/change_figures
 ```
 
-Recompute the empirical analysis from the public source (internet required):
+Public-source verification:
 
 ```bash
-python scripts/fetch_and_analyze.py
+python scripts/fetch_and_analyze.py --check
 ```
 
-The online rebuild calls study-specific functions from `research/model.py`; the tests exercise those functions and scientific invariants rather than only checking file presence.
-
-## Research bundle contents
-
-- `README.md` — study overview and bounded findings
-- `EMPIRICAL_STUDY.md` — protocol, validity, and interpretation
-- `data/source_manifest.json` — provenance, license note, and claim boundary
-- `data/derived/` — compact derived empirical tables
-- `results/empirical_summary.json` — machine-readable headline results
-- `scripts/fetch_and_analyze.py` — public-source rebuild
-- `research/model.py` — reusable study-specific analysis functions
-- `tests/` — behavioral and scientific-invariant tests
-- `docs/` — analysis plan, data dictionary, paper blueprint, references, originality map
-- `assets/` — four study-specific SVG figures
+The source rebuild verifies the Zenodo MD5, computes and prints SHA-256, reconstructs all 54 project tables, and checks the released summary and heterogeneity results.
 
 ## Research integrity
 
-This bundle distinguishes **source data**, **operationalization**, **result**, and **interpretation**. The analysis plan documents the released analysis; it is **not described as preregistered**. Public data do not automatically validate a construct, so proxy and external-validity limits are explicit.
+This analysis is **not preregistered**. The n≥20 inferential restriction is a released-analysis correction chosen to satisfy standard expected-cell guidance; n≥30/40/50 analyses are reported as sensitivity checks rather than hidden researcher degrees of freedom.

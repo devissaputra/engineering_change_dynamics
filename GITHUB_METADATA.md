@@ -3,14 +3,11 @@
 ## Portfolio track
 **Engineering Management Research**
 
-## Repository slug
-`engineering_change_dynamics`
-
 ## About
-Empirical Engineering Management study of 2,533 classified commits across 54 Apache projects to quantify engineering-change orientation and heterogeneity.
+Empirical study of perfective, corrective, and other change composition across 54 Apache projects using 2,533 manually classified commits.
 
 ## Suggested topics
-engineering-management, systems-engineering, software-engineering, engineering-change, change-management, software-quality, empirical-software-engineering, secondary-analysis, empirical-research, reproducible-research
+engineering-management, software-engineering, software-maintenance, software-evolution, engineering-change, change-management, commit-classification, software-quality, empirical-research, reproducible-research
 
-## Classification rule
-This repository belongs to the **Engineering Management Research** track in the eight-repository empirical research portfolio. Do not classify it under the other track.
+## Suggested website
+https://devissaputra.github.io/

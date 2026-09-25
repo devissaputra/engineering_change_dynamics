@@ -1,15 +1,30 @@
 {
-  "study_title": "Quality-Oriented Engineering Change Dynamics in Apache Projects",
-  "design": "Secondary observational analysis of 2,533 manually coded commits from 54 Java Apache projects",
+  "study_title": "Cross-Project Heterogeneity in Quality-Oriented Engineering Change",
+  "design": "Secondary observational analysis of maintenance-intent composition across Apache projects",
   "retrieved_for_analysis": "2026-09-25",
-  "source_name": "SmartSHARK commit-intent replication dataset (Trautsch et al.)",
+  "canonical_source": "Trautsch et al. replication dataset on Zenodo",
   "source_page": "https://zenodo.org/records/7078179",
   "direct_data_url": "https://zenodo.org/records/7078179/files/manual_labels.csv?download=1",
   "doi": "10.5281/zenodo.7078179",
-  "license_note": "Open Zenodo research dataset; cite the original authors and follow the record reuse terms.",
+  "zenodo_reported_md5": "a099d942098227a1fc8127759e55850e",
+  "verified_sha256": "",
+  "rows": 2533,
+  "projects": 54,
+  "source_taxonomy": [
+    "perfective",
+    "corrective",
+    "other"
+  ],
+  "taxonomy_note": "The source authors map perfective to internal-quality improvement intent and corrective to external-quality improvement intent. No source row has both flags true; this is treated as taxonomy structure rather than an empirical negative association.",
+  "source_sampling_note": "The source article reports a random sample of approximately 2% of eligible commits per project, rounded up, for manual classification.",
   "raw_data_redistributed": false,
-  "derived_empirical_results_in_repository": true,
-  "claim_boundary": "Commit intent is not equivalent to requirement change, design rework, or downstream cost/schedule impact. The empirical title is intentionally narrower: claims concern coded change orientation in this sample of Apache projects.",
-  "repository_slug": "engineering_change_dynamics",
-  "supersedes_prototype_slug": "requirements_rework_dynamics"
+  "derived_aggregate_evidence_in_repository": true,
+  "rights_note": "The Zenodo record is open but does not display a specific dataset license value. The peer-reviewed article is CC BY 4.0. This repository therefore avoids republishing manual_labels.csv and stores derived aggregate tables only.",
+  "replication_github_crosscheck": {
+    "repository": "atrautsch/emse2021_replication",
+    "commit": "b1068453ee9fb85b2c50615ad6d9e742ad8c829b",
+    "path": "data/manual_labels.csv",
+    "git_blob_sha": "736915770459fec600c64f8c844b10e66c37788e"
+  },
+  "scientific_correction": "Version 1.1 removes the phi/four-state interpretation, packages all 54 projects with Wilson intervals, and uses sample-size-sensitive project×category heterogeneity analysis."
 }

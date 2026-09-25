@@ -1,26 +1,38 @@
 # Empirical Study Protocol
 
 ## Study
-Quality-Oriented Engineering Change Dynamics in Apache Projects
+Cross-Project Heterogeneity in Quality-Oriented Engineering Change
 
-## Research question
-How frequently do observed engineering changes target internal versus external software quality, and how heterogeneous is that orientation across projects?
+## Design
+Secondary observational analysis of 2,533 manually coded commits from 54 Java Apache projects.
 
-## Design and source
-Secondary observational analysis of 2,533 manually coded commits from 54 Java Apache projects. Source: SmartSHARK commit-intent replication dataset (Trautsch et al.). Analysis/retrieval date: 2026-09-25.
+## Source taxonomy
+The source study manually classifies commits into three mutually exclusive categories:
+- **perfective** — internal-quality improvement intent;
+- **corrective** — external-quality improvement intent;
+- **other** — neither perfective nor corrective in the released coding scheme.
 
-## Hypotheses
-1. H1: internal-quality changes constitute a substantial share of observed engineering work.
-2. H2: project-level internal- and external-quality shares vary materially rather than following one portfolio-wide pattern.
+The source CSV stores these as `internal_quality` and `external_quality` flags. No released row has both flags true. This is treated as a taxonomy property, not as an empirical negative association.
 
-## Operationalization and method
-Parse the manually coded commit sample, classify each commit into internal-quality only, external-quality only, both, or neither, and compute overall and project-level shares. The packaged project table intentionally shows the ten projects with the largest sampled commit counts; portfolio extrema are computed over all 54 projects.
+## Primary estimand
+Project-level composition of perfective, corrective, and other commits.
 
-## Primary empirical result
-Among 2,533 manually classified commits, 40.3% are internal-quality changes, 27.0% external-quality changes, and 32.6% neither. Project-level internal-quality shares range from 0.130 to 0.818, demonstrating strong heterogeneity in observed change orientation.
+## Uncertainty
+Each project-category share receives a 95% Wilson binomial interval. These intervals are descriptive and do not imply independent multinomial categories.
 
-## Validity and claim boundary
-Commit intent is not equivalent to requirement change, design rework, or downstream cost/schedule impact. The empirical title is intentionally narrower: claims concern coded change orientation in this sample of Apache projects.
+## Heterogeneity test
+The complete 54×3 table is reported descriptively, but 21 expected cells are below 5. Primary inferential analysis therefore uses projects with at least 20 labeled commits, where every expected cell exceeds 5.
 
-## Reproducibility status
-The repository packages derived results, study-specific analysis functions, deterministic or seeded procedures where relevant, an internet-enabled source rebuild script, and tests for both computations and critical scientific invariants. The released analysis was documented after dataset selection and should not be represented as preregistered.
+Primary result:
+χ²(84) = 432.452175, p ≈ 2.46×10⁻⁴⁸, Cramér's V = 0.301796, N = 2374, 43 projects.
+
+## Sensitivity
+At n≥30: χ²(66) = 388.076754, p ≈ 3.98×10⁻⁴⁷, Cramér's V = 0.29979, N = 2159, 34 projects.
+
+Additional n≥40 and n≥50 results are packaged.
+
+## Diagnostic residuals
+Pearson residuals identify project-category cells that contribute strongly to the omnibus heterogeneity statistic. They are not reported as separately adjusted significance tests.
+
+## Validity boundary
+This study describes maintenance-intent composition in a manually sampled Apache dataset. It does not estimate requirement churn, design propagation, cost, schedule impact, or causal project effects.

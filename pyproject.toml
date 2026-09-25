@@ -1,9 +1,9 @@
 [project]
 name = "engineering-change-dynamics"
-version = "1.0.0"
-description = "Empirical engineering-change study using 2,533 manually classified commits from 54 Apache projects."
+version = "1.1.0"
+description = "Cross-project maintenance-intent heterogeneity study using manually classified Apache commits."
 requires-python = ">=3.10"
-dependencies = []
+dependencies = ["scipy>=1.11,<2"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]

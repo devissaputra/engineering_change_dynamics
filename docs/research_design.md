@@ -1,20 +1,22 @@
 # Research Design
 
 ## Research question
-How frequently do observed engineering changes target internal versus external software quality, and how heterogeneous is that orientation across projects?
+How heterogeneous is manually classified maintenance-intent composition across Apache projects?
 
-## Design
-Secondary observational analysis of 2,533 manually coded commits from 54 Java Apache projects.
+## Unit of analysis
+One manually classified commit nested within one Apache Java project.
 
-## Source and unit of analysis
-Source: SmartSHARK commit-intent replication dataset (Trautsch et al.). The operational unit follows the public dataset and is documented in `data/source_manifest.json` and `docs/data_dictionary.md`.
+## Source sampling
+The original study randomly sampled approximately 2% of eligible commits per project, rounded up, for manual classification.
 
-## Hypotheses
-1. H1: internal-quality changes constitute a substantial share of observed engineering work.
-2. H2: project-level internal- and external-quality shares vary materially rather than following one portfolio-wide pattern.
+## Classification
+Perfective, corrective, or other. The source authors map perfective to internal-quality improvement intent and corrective to external-quality improvement intent.
 
-## Method
-Parse the manually coded commit sample, classify each commit into internal-quality only, external-quality only, both, or neither, and compute overall and project-level shares. The packaged project table intentionally shows the ten projects with the largest sampled commit counts; portfolio extrema are computed over all 54 projects.
+## Project-level uncertainty
+Small project samples can generate extreme raw proportions. The released bundle therefore reports Wilson intervals and does not use min/max proportions alone as evidence.
 
-## Validity boundary
-Commit intent is not equivalent to requirement change, design rework, or downstream cost/schedule impact. The empirical title is intentionally narrower: claims concern coded change orientation in this sample of Apache projects.
+## Omnibus inference
+Primary heterogeneity analysis is restricted to projects with n≥20 so all expected contingency-table counts exceed 5. Effect-size stability is checked at n≥30, 40, and 50.
+
+## Construct boundary
+This is software-maintenance intent, not a direct measure of requirements change, engineering-change propagation, rework cost, or schedule risk.

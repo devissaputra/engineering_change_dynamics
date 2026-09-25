@@ -1,16 +1,26 @@
 # Data Dictionary
 
-## Provenance
-See `data/source_manifest.json`. Raw source observations are not silently republished.
+## `project_composition.csv`
+Complete 54-project aggregate table:
+- project name;
+- manually labeled sample size;
+- perfective/corrective/other counts;
+- category shares;
+- 95% Wilson interval bounds for each share.
 
-## `data/derived/primary_results.csv`
-Ten projects with the largest sampled commit counts; portfolio-wide counts and extrema use all 54 projects.
+This table is sufficient for offline reproduction of pooled counts and project×category heterogeneity tests.
 
-## `data/derived/secondary_results.csv`
-When present and non-empty, this contains a second derived table needed to reproduce a reported comparison. If empty, no second packaged table is required.
+## `category_summary.csv`
+Pooled category counts, shares, and 95% Wilson intervals.
+
+## `heterogeneity_results.csv`
+Omnibus project×category results at minimum project sample sizes 10, 20, 30, 40, and 50.
+
+## `project_residuals.csv`
+All 54×3 Pearson residuals relative to pooled category proportions.
 
 ## `results/empirical_summary.json`
-Machine-readable headline sample sizes, estimates, and the release finding. Values must agree with README text and the derived CSVs.
+Headline counts and the primary/sensitivity heterogeneity results.
 
-## Construct boundary
-Commit intent is not equivalent to requirement change, design rework, or downstream cost/schedule impact. The empirical title is intentionally narrower: claims concern coded change orientation in this sample of Apache projects.
+## Raw source
+The 2,533-row Zenodo source is not redistributed because the Zenodo record does not display a specific dataset-license value. The online rebuild downloads and verifies it directly.

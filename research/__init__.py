@@ -1,3 +1,3 @@
-"""Study-specific research methods for this empirical bundle."""
-from .model import load_summary, validate_bundle
-__all__ = ["load_summary", "validate_bundle"]
+"""Study-specific methods for the engineering-change heterogeneity bundle."""
+from .model import heterogeneity, load_summary, validate_bundle
+__all__=["heterogeneity","load_summary","validate_bundle"]

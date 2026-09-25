@@ -5,16 +5,22 @@
 python -m pip install -r requirements.txt
 pytest -q
 python run_demo.py
+python scripts/generate_figures.py --out-dir /tmp/change_figures
 ```
 
-Offline tests operate on packaged derived evidence and study-specific pure functions.
+Offline tests recompute all pooled counts, confidence intervals, contingency statistics, effect sizes, and residuals from the complete 54-project derived table.
 
-## Full source rebuild
+## Public source
 ```bash
-python scripts/fetch_and_analyze.py
+python scripts/fetch_and_analyze.py --check
 ```
 
-The rebuild requires internet access and retrieves the source recorded in `data/source_manifest.json`. It intentionally does not substitute generated observations if retrieval fails.
+The rebuild:
+1. downloads `manual_labels.csv` from Zenodo;
+2. verifies MD5 `a099d942098227a1fc8127759e55850e`;
+3. prints SHA-256;
+4. verifies the mutually exclusive three-category source invariant;
+5. reconstructs the 54-project aggregate table;
+6. checks all released heterogeneity and summary results.
 
-## Reproducibility boundary
-External sources can change or move. The manifest records the source identity, DOI/version where available, retrieval date, and reuse note. Derived results in this release correspond to the source state retrieved on 2026-09-25.
+There is no synthetic fallback.

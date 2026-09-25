@@ -1,18 +1,12 @@
 # Research Bundle Definition
 
-This repository is treated as a research bundle because it links one explicit research question to a named empirical source, a documented operationalization, executable analysis code, derived evidence, reproducibility checks, visual evidence, validity boundaries, and a paper-ready interpretation path.
+This repository is a Research Bundle because it links a clear engineering-management question to a peer-reviewed public source, complete 54-project derived evidence, uncertainty intervals, formal heterogeneity inference, small-sample sensitivity, diagnostic residuals, executable analysis, figures, tests, and source-integrity checks.
 
-## Question
-How frequently do observed engineering changes target internal versus external software quality, and how heterogeneous is that orientation across projects?
-
-## Empirical core
-Manual-label aggregation and cross-project heterogeneity.
+## Scientific correction
+Version 1.1 removes the misleading four-state/phi analysis and follows the source's actual perfective/corrective/other taxonomy.
 
 ## Main result
-Among 2,533 manually classified commits, 40.3% are internal-quality changes, 27.0% external-quality changes, and 32.6% neither. Project-level internal-quality shares range from 0.130 to 0.818, demonstrating strong heterogeneity in observed change orientation.
-
-## Boundary
-Commit intent is not equivalent to requirement change, design rework, or downstream cost/schedule impact. The empirical title is intentionally narrower: claims concern coded change orientation in this sample of Apache projects.
+Primary n≥20 analysis: χ²(84)=432.452175, p≈2.46×10⁻⁴⁸, Cramér's V=0.301796. The effect remains 0.29979 at n≥30.
 
 ## Release criterion
-A release passes only if source provenance, code, derived tables, JSON summary, README claims, figures, and tests agree numerically and semantically.
+PASS requires source checksum verification, complete 54-project evidence, numerical agreement across CSV/JSON/docs/figures, tests, regular CI, and public-source rebuild CI.

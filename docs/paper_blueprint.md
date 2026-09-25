@@ -1,25 +1,25 @@
 # Paper Blueprint
 
 ## Working title
-Quality-Oriented Engineering Change Dynamics in Apache Projects
+**Cross-Project Heterogeneity in Quality-Oriented Engineering Change: Evidence from 2,533 Manually Classified Apache Commits**
 
 ## Motivation
-Engineering-management portfolios contain different mixes of maintenance, externally visible change, and internal-quality work. A manually coded multi-project sample makes it possible to quantify that orientation without inferring intent from commit-message keywords alone.
+Engineering managers see different mixes of internal-quality improvement, corrective work, and other development activity. A manually coded multi-project dataset permits direct comparison without inferring intent from commit-message keywords.
 
-## Research question
-How frequently do observed engineering changes target internal versus external software quality, and how heterogeneous is that orientation across projects?
+## Contribution
+The source publication primarily studies software metrics associated with maintenance intent. This secondary analysis focuses instead on **between-project composition**, uncertainty, and the stability of heterogeneity after small-sample filtering.
 
-## Data and method
-Parse the manually coded commit sample, classify each commit into internal-quality only, external-quality only, both, or neither, and compute overall and project-level shares. The packaged project table intentionally shows the ten projects with the largest sampled commit counts; portfolio extrema are computed over all 54 projects.
+## Data
+2,533 manually classified commits from 54 Java Apache projects.
 
-## Results to report
-Among 2,533 manually classified commits, 40.3% are internal-quality changes, 27.0% external-quality changes, and 32.6% neither. Project-level internal-quality shares range from 0.130 to 0.818, demonstrating strong heterogeneity in observed change orientation. Report the packaged headline metrics and the full relevant derived table; do not cherry-pick only the strongest contrast.
+## Method
+Three-category composition; 95% Wilson intervals; project×category chi-square; Cramér's V; sample-size sensitivity; Pearson residual diagnostics.
 
-## Robustness / sensitivity
-The release checks portfolio totals across all 2,533 labeled commits and computes project-level shares across all 54 projects. The displayed CSV intentionally contains only the ten projects with the largest labeled samples, while reported minima and maxima are calculated over the complete 54-project set. No claim is made that the sample is representative of all software organizations.
+## Main result
+In the primary n≥20 analysis, χ²(84)=432.452175, p≈2.46×10⁻⁴⁸, Cramér's V=0.301796. At n≥30, V=0.29979. The stable effect size supports material project-to-project differences in maintenance-intent composition.
 
-## Limitations
-Commit intent is not equivalent to requirement change, design rework, or downstream cost/schedule impact. The empirical title is intentionally narrower: claims concern coded change orientation in this sample of Apache projects.
+## Interpretation
+The result is about the observed Apache sample, not all organizations and not causal determinants of engineering-change behavior.
 
-## Publication integrity
-Do not describe this repository as peer reviewed, preregistered, or externally validated unless those events actually occur. Distinguish analysis of public data from original data collection.
+## Follow-on work
+A stronger longitudinal study would merge these labels with timestamps and project lifecycle information. That would justify a true temporal “dynamics” claim; this release intentionally does not pretend the current CSV contains time.

@@ -1,0 +1,4 @@
+category,count,share,ci_low,ci_high
+perfective,1022,0.403474,0.384529,0.422712
+corrective,685,0.27043,0.25349,0.288066
+other,826,0.326096,0.308115,0.344603

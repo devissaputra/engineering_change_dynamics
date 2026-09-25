@@ -1,5 +1,10 @@
 # Results
 
-`empirical_summary.json` contains the machine-readable headline metrics and the bounded release finding for **Quality-Oriented Engineering Change Dynamics in Apache Projects**.
+The result package contains:
+- pooled perfective/corrective/other composition;
+- complete 54-project composition with uncertainty;
+- primary n≥20 heterogeneity inference;
+- n≥30/40/50 sensitivity analyses;
+- 162 project-category Pearson residual diagnostics.
 
-The JSON is generated/checked against the derived CSVs and study-specific analysis assumptions. It should not be edited independently of the data tables, documentation, tests, and figures.
+The former phi coefficient has been removed because the source labels form a three-category maintenance taxonomy rather than two independent binary outcomes.

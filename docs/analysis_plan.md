@@ -1,24 +1,27 @@
 # Analysis Plan
 
 ## Status
-This file documents the analysis released in this repository. It is **not a preregistration** and should not be described as one.
+This documents the corrected released analysis. It is **not a preregistration**.
 
-## Primary estimand / descriptive target
-How frequently do observed engineering changes target internal versus external software quality, and how heterogeneous is that orientation across projects?
+## RQ1 — pooled composition
+Count perfective, corrective, and other commits and report pooled shares with 95% Wilson intervals.
 
-## Analysis
-Parse the manually coded commit sample, classify each commit into internal-quality only, external-quality only, both, or neither, and compute overall and project-level shares. The packaged project table intentionally shows the ten projects with the largest sampled commit counts; portfolio extrema are computed over all 54 projects.
+## RQ2 — project heterogeneity
+Construct the complete project×category contingency table.
 
-## Specified outputs for this release
-1. source/sample size and provenance;
-2. primary derived metric(s);
-3. comparator, cross-group, cross-time, or frontier contrast where applicable;
-4. uncertainty, sensitivity, or error information supported by the source;
-5. explicit construct and external-validity limitations.
+Because the full 54-project table contains 21 expected cells below 5, use projects with n≥20 as the primary Pearson chi-square analysis. Report χ², df, p-value, Cramér's V, minimum expected count, and number of expected cells below 5.
 
-## Missingness / exclusions
+## RQ3 — small-sample sensitivity
+Repeat at minimum project sizes of 30, 40, and 50. The full n≥10 table is retained as a descriptive/sensitivity result rather than relied upon as the primary asymptotic test.
 
-All 2,533 manually coded commits in the released SmartSHARK sample are retained. No commit labels are inferred or imputed. The top-10 project table is a display subset only; project-level extrema are calculated across all 54 projects.
+## RQ4 — contribution diagnostics
+Compute Pearson residuals for every project-category cell against pooled proportions. Use them to describe which cells contribute strongly to the omnibus heterogeneity, without treating them as multiplicity-adjusted individual tests.
 
-## Interpretation boundary
-Commit intent is not equivalent to requirement change, design rework, or downstream cost/schedule impact. The empirical title is intentionally narrower: claims concern coded change orientation in this sample of Apache projects.
+## Confidence intervals
+Use 95% Wilson intervals for each project-category proportion.
+
+## No phi coefficient
+Do not compute or interpret phi between the two source flags. The source ground truth is a three-category maintenance taxonomy, not two independent binary constructs.
+
+## Exclusions
+No source commit is dropped from pooled descriptive counts. Only the inferential sensitivity subsets apply project-level sample-size thresholds.

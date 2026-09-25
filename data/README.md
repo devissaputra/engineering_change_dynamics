@@ -1,11 +1,16 @@
 # Data
 
-**Primary source:** SmartSHARK commit-intent replication dataset (Trautsch et al.)
+Canonical public source: Zenodo DOI `10.5281/zenodo.7078179`, file `manual_labels.csv`.
 
-**Source page:** https://zenodo.org/records/7078179
+Zenodo-reported MD5:
+`a099d942098227a1fc8127759e55850e`
 
-**Reuse note:** Open Zenodo research dataset; cite the original authors and follow the record reuse terms.
+The source contains 2,533 manually classified commits from 54 Java Apache projects.
 
-Raw source observations are not bundled here by default. Derived tables are packaged under `data/derived/`; their completeness or subset status is stated in `docs/data_dictionary.md`.
+This repository packages **derived aggregates only**:
+- all 54 project counts/proportions/intervals;
+- pooled category summary;
+- heterogeneity sensitivity results;
+- project-category residual diagnostics.
 
-**Construct boundary:** Commit intent is not equivalent to requirement change, design rework, or downstream cost/schedule impact. The empirical title is intentionally narrower: claims concern coded change orientation in this sample of Apache projects.
+Raw revision hashes and the source CSV are not republished.
