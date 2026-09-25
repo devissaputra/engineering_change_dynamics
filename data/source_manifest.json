@@ -10,15 +10,19 @@
   "verified_sha256": "e1f20419341ab6c03a23da5c35cbb9d7e9fa2c7ed210d76c14293f15119b8941",
   "rows": 2533,
   "projects": 54,
-  "source_taxonomy": [
-    "perfective",
-    "corrective",
-    "other"
-  ],
-  "taxonomy_note": "The source authors map perfective to internal-quality improvement intent and corrective to external-quality improvement intent. No source row has both flags true; this is treated as taxonomy structure rather than an empirical negative association.",
-  "source_sampling_note": "The source article reports a random sample of approximately 2% of eligible commits per project, rounded up, for manual classification.",
+  "source_taxonomy": ["perfective", "corrective", "other"],
+  "taxonomy_note": "The source authors map perfective to internal-quality improvement intent and corrective to external-quality improvement intent. No source row has both flags true; the release treats this as taxonomy structure rather than an empirical negative association.",
+  "source_sampling_note": "The peer-reviewed article reports a random sample of approximately 2% of eligible commits per project, rounded up, for manual classification.",
+  "manual_coding_note": "Each sampled commit message was inspected independently by two researchers and disagreements were resolved together.",
   "raw_data_redistributed": false,
   "derived_aggregate_evidence_in_repository": true,
+  "primary_min_project_n": 20,
+  "primary_analysis_note": "The complete 54-project table contains 21 expected cells below 5. The n>=20 subset contains no expected cell below 5 and is used as the primary asymptotic analysis.",
+  "diagnostics": [
+    "full-table Pearson residuals",
+    "primary-subset Pearson residuals",
+    "primary project chi-square contributions"
+  ],
   "rights_note": "The Zenodo record is open but does not display a specific dataset license value. The peer-reviewed article is CC BY 4.0. This repository therefore avoids republishing manual_labels.csv and stores derived aggregate tables only.",
   "replication_github_crosscheck": {
     "repository": "atrautsch/emse2021_replication",
@@ -26,5 +30,7 @@
     "path": "data/manual_labels.csv",
     "git_blob_sha": "736915770459fec600c64f8c844b10e66c37788e"
   },
-  "scientific_correction": "Version 1.1 removes the phi/four-state interpretation, packages all 54 projects with Wilson intervals, and uses sample-size-sensitive project×category heterogeneity analysis."
+  "scientific_correction": "Version 1.2 retains the three-category taxonomy correction and adds primary-subset residual diagnostics, project-level chi-square contribution decomposition, stronger source verification, and synchronized scientific figures.",
+  "release_version": "1.2.0",
+  "claim_boundary": "The analysis supports cross-project heterogeneity in sampled maintenance intent. It does not establish project quality rankings, causal project effects, temporal dynamics, engineering-change cost, or schedule impact."
 }
