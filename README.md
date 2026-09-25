@@ -23,6 +23,7 @@ The prototype treated `internal_quality` and `external_quality` as independent b
 - **Zenodo DOI:** `10.5281/zenodo.7078179`
 - **File:** `manual_labels.csv`
 - **Zenodo MD5:** `a099d942098227a1fc8127759e55850e`
+- **Verified SHA-256:** `e1f20419341ab6c03a23da5c35cbb9d7e9fa2c7ed210d76c14293f15119b8941`
 - **Sample:** 2,533 commits from 54 Java Apache projects
 - **Original study sampling:** approximately 2% of eligible commits per project, rounded up
 - **Manual coding:** two researchers, consensus labels after resolving disagreements

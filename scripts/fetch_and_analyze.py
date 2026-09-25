@@ -8,7 +8,7 @@ from research.model import CATEGORIES,heterogeneity,project_table_from_rows,resi
 
 URL="https://zenodo.org/records/7078179/files/manual_labels.csv?download=1"
 EXPECTED_MD5="a099d942098227a1fc8127759e55850e"
-EXPECTED_SHA256=""  # populated after the first verified Zenodo rebuild
+EXPECTED_SHA256="e1f20419341ab6c03a23da5c35cbb9d7e9fa2c7ed210d76c14293f15119b8941"
 
 def fetch():
     req=urllib.request.Request(URL,headers={"User-Agent":"Mozilla/5.0 ResearchBundle/1.1"})
