@@ -1,5 +1,12 @@
 # Portfolio Track
 
-**Engineering Management Research**
+**Portfolio track:** Engineering Management Research  
+**Public presentation:** Research in System Engineering  
+**Repository:** `engineering_change_dynamics`  
+**Focus:** Software Intensive Systems / Maintenance Intent / Cross Project Heterogeneity
 
-This bundle studies maintenance-intent composition and between-project heterogeneity in software-intensive engineering work. It belongs to the Engineering Management Research track rather than the AI in Education or generic AI Engineering tracks.
+This repository belongs to the Engineering Management Research portfolio track.
+
+On the public portfolio site, it is presented under **Research in System Engineering** because it studies how engineering work composition differs across software intensive systems.
+
+The released analysis is cross project rather than temporal. The repository name is retained, but the documentation does not claim time series dynamics.
