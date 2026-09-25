@@ -1,0 +1,10 @@
+[project]
+name = "engineering-change-dynamics"
+version = "1.0.0"
+description = "Empirical engineering-change study using 2,533 manually classified commits from 54 Apache projects."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

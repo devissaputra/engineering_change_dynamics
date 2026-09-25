@@ -1,0 +1,22 @@
+{
+  "study": "Quality-Oriented Engineering Change Dynamics in Apache Projects",
+  "headline_metrics": {
+    "n_commits": 2533,
+    "n_projects": 54,
+    "internal_only": 1022,
+    "external_only": 685,
+    "neither": 826,
+    "both": 0,
+    "internal_only_share": 0.403,
+    "external_only_share": 0.27,
+    "neither_share": 0.326,
+    "phi_internal_external": -0.501,
+    "project_internal_share_min": 0.13,
+    "project_internal_share_max": 0.818,
+    "project_external_share_min": 0.0,
+    "project_external_share_max": 0.563
+  },
+  "finding": "Among 2,533 manually classified commits, 40.3% are internal-quality changes, 27.0% external-quality changes, and 32.6% neither. Project-level internal-quality shares range from 0.13 to 0.818, demonstrating strong heterogeneity in change orientation.",
+  "source": "SmartSHARK commit-intent replication dataset (Trautsch et al.)",
+  "retrieved": "2026-09-25"
+}

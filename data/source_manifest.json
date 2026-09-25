@@ -1,0 +1,15 @@
+{
+  "study_title": "Quality-Oriented Engineering Change Dynamics in Apache Projects",
+  "design": "Secondary observational analysis of 2,533 manually coded commits from 54 Java Apache projects",
+  "retrieved_for_analysis": "2026-09-25",
+  "source_name": "SmartSHARK commit-intent replication dataset (Trautsch et al.)",
+  "source_page": "https://zenodo.org/records/7078179",
+  "direct_data_url": "https://zenodo.org/records/7078179/files/manual_labels.csv?download=1",
+  "doi": "10.5281/zenodo.7078179",
+  "license_note": "Open Zenodo research dataset; cite the original authors and follow the record reuse terms.",
+  "raw_data_redistributed": false,
+  "derived_empirical_results_in_repository": true,
+  "claim_boundary": "Commit intent is not equivalent to requirement change, design rework, or downstream cost/schedule impact. The empirical title is intentionally narrower: claims concern coded change orientation in this sample of Apache projects.",
+  "repository_slug": "engineering_change_dynamics",
+  "supersedes_prototype_slug": "requirements_rework_dynamics"
+}
